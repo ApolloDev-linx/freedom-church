@@ -4,28 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Freedom at 2443{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
   </head>
-  <body class="bg-gray-100 text-gray-900 font-sans">
+  <body>
     
-    <!-- 🔹 NAVBAR (optional starter) -->
-    <nav class="bg-white shadow-md p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold">Freedom at 2443</h1>
-        <ul class="flex gap-4">
-          <li><a href="{{ url_for('index') }}" class="hover:text-blue-600">Home</a></li>
-          <li><a href="{{ url_for('about') }}" class="hover:text-blue-600">About</a></li>
-          <li><a href="{{ url_for('contact') }}" class="hover:text-blue-600">Contact</a></li>
-        </ul>
-      </div>
+    <!-- 🔹 NAVBAR -->
+    <nav>
+	    <ul>
+
+		    <li><a href="{{url_for('home')}}">Home</a> </li>
+		    <li><a href="{{url_for('about')}}">About</a> </li>
+		    <li><a href="{{url_for('contact')}}">Contact</a> </li>
+		    <li><a href="{{url_for('giving')}}">Giving</a> </li>
+	    </ul>
     </nav>
-
-    <!-- 🔸 PAGE CONTENT -->
-    <main class="container mx-auto px-4 py-6">
-      {% block content %}
-      {% endblock %}
+    <!-- main section -->
+    <main>
+	    {% block content%}{% endblock%}
     </main>
-
+    <!-- footer section -->
+    <footer>
+	    <p>&copy; 2025 Freedom Church </p>
+    </footer>
+  
   </body>
 </html>
 
