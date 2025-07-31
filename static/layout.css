@@ -1,0 +1,40 @@
+html, body {
+margin: 0;
+padding: 0;
+height: 100%;
+scroll-snap-type: none;
+scroll-behavior:smooth;
+overflow-y: scroll;
+}
+
+.section{
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: sans-serif;
+opacity: 0;
+transform: translateY(50px);
+transition: all 1s ease-out;
+}
+
+.section.in-view{
+opacity: 1;
+transform: translateY(0);
+}
+
+
+.section:nth-child(1){
+background: black;
+}
+.section:nth-child(2){
+background: white;}
+.section:nth-child(3){
+background: black;}
+.section:nth-child(4){
+background:white;
+}
+
+.whiteTxt{
+color: white;
+}

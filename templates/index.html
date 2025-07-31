@@ -1,9 +1,39 @@
-{% extends "layout.html" %}
+{% extends "layout.html"%}
 
-{% block title %}Home | Freedom at 2443{% endblock %}
+{% block title%}Home - Freedom Church{% endblock%}
 
 {% block content %}
-  <h2 class="text-2xl font-semibold mb-4">Welcome to Freedom at 2443</h2>
-  <p>This is where the Spirit moves — and the code runs smooth 😤</p>
-{% endblock %}
+	<section class="section">
+		<div>
+			<h1 class="whiteTxt"> New Freedom Christian Fellowship </h1>
+			<p class="whiteTxt"> A Perfect Place for Imperfect people</p>
+			<img height ="800" width="800"   src = "{{url_for('static', filename='img/testPastor.png')}}"/>
+		</div>
 
+	</section>
+
+
+	<section class="section">
+		<div>
+			<h1> How the Church op </h1>
+			<p> schduels </p>
+		</div>
+	</section>
+
+
+	<section class="section">
+		<div>
+			<h1 class="whiteTxt"> our mission </h1>
+			<p class="whiteTxt"> we aim to... </p>
+		</div>
+	</section>
+
+
+	<section class="section">
+		<div>
+			<h1> Take action </h1>
+			<p>start here </p>
+		</div>
+	</section>
+
+{% endblock%}
