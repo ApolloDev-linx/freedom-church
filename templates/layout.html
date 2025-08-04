@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@500;700&family=Red+Hat+Text:wght@400;500&family=Roboto+Flex:opsz,wght@8..144,400;8..144,600&display=swap" rel="stylesheet">
+		  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Freedom at 2443{% endblock %}</title>
@@ -9,15 +11,24 @@
   <body>
     
     <!-- 🔹 NAVBAR -->
-    <nav>
-	    <ul>
+    <header class="site-header">
+    <nav class="navbar">
+  <div class="mobile-nav-row">
+    <button class="hamburger" id="hamburger">&#9776;</button> <!-- ☰ -->
+    <div class="logo"> <img class="logo-img"src ="{{url_for('static', filename="img/church-logo.png")}}"></div>
+    <a href="{{url_for('contact')}}" class="visit-us">Visit Us</a>
+  </div>
 
-		    <li><a href="{{url_for('home')}}">Home</a> </li>
-		    <li><a href="{{url_for('about')}}">About</a> </li>
-		    <li><a href="{{url_for('contact')}}">Contact</a> </li>
-		    <li><a href="{{url_for('giving')}}">Giving</a> </li>
-	    </ul>
-    </nav>
+  <div class="mobile-nav-links" id="mobileNavLinks">
+    <ul class="nav-links">
+      <li><a href="{{url_for('home')}}">Home</a></li>
+      <li><a href="{{url_for('about')}}">About</a></li>
+      <li><a href="{{url_for('contact')}}">Contact</a></li>
+      <li><a href="{{url_for('giving')}}">Giving</a></li>
+    </ul>
+  </div>
+   </nav>
+    </header>
     <!-- main section -->
     <main>
 	    {% block content%}{% endblock%}
