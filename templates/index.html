@@ -3,11 +3,19 @@
 {% block title%}Home - Freedom Church{% endblock%}
 
 {% block content %}
-	<section class="section">
-		<div>
-			<h1 class="whiteTxt"> New Freedom Christian Fellowship </h1>
-			<p class="whiteTxt"> A Perfect Place for Imperfect people</p>
-			<img height ="800" width="800"   src = "{{url_for('static', filename='img/testPastor.png')}}"/>
+	<section class="section hero">
+		<div class="hero-overlay" >
+
+		<h1 class="churchName "> New Freedom Christian Fellowship </h1>
+			<div class="heroImg">
+				<img src="static/img/testPastor.png"/>
+			</div>
+			<div class="hero-text">
+				<p class="tagline "> A Perfect Place for Imperfect people.</p>
+				<p class="subtext">Real life -Real Love -Real Family</p>
+			<p class="tagline"> Pastor Mario </p>
+			</div>
+
 		</div>
 
 	</section>

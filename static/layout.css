@@ -1,40 +1,311 @@
+
+/* === GLOBAL BASE === */
 html, body {
-margin: 0;
-padding: 0;
-height: 100%;
-scroll-snap-type: none;
-scroll-behavior:smooth;
-overflow-y: scroll;
+  background-color: #1f2937;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-snap-type: none;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f2f2f2;
 }
 
-.section{
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: sans-serif;
-opacity: 0;
-transform: translateY(50px);
-transition: all 1s ease-out;
+/* === SECTION BASE === */
+.section {
+  border-radius: 25px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+.section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section:nth-child(1) { background: #1f2937; }
+.section:nth-child(2) { background: #e5e7eb; }
+.section:nth-child(3) { background: #1f2937; }
+.section:nth-child(4) { background: #e5e7eb; }
+
+.whiteTxt { color: white; }
+
+/* === HERO BANNER === */
+.section.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #1f2937, #f8f9fa);
+  text-align: center;
+}
+.hero-overlay {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.heroImg{
+width:90%;
+max-width: 1400px;
+height:600px;
+margin: 0 auto;
+}
+.heroImg img {
+  width: 100%;
+  height: 600px;
+  max-width: none;
+  display:block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+/* === TEXT === */
+.churchName {
+  font-family: 'Funnel Sans', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.tagline {
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: black;
+  margin-top: 0.5rem;
+}
+.subtext {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1f2937;
 }
 
-.section.in-view{
-opacity: 1;
-transform: translateY(0);
+/* === NAVBAR === */
+.site-header {
+  background-color: #0f172a;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #222;
+}
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  padding: 1rem 3rem;
+  background-color: #0f172a;
+  border-bottom: 1px solid #222;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.nav-links a {
+  font-family: 'Red Hat Text', sans-serif;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  flex-shrink: 1;
+  white-space: normal;
+  text-align: center;
+}
+.nav-links a:hover {
+  color: #facc15;
+}
+.nav-logo {
+  font-family: 'Funnel Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* === FLEX GROUPINGS === */
+.left-links, .right-links {
+  display: flex;
+  gap: 11rem;
+}
+
+ /* === HAMBURGER NAV === */
+.hamburger {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #facc15;
+  cursor: pointer;
+}
+
+.mobile-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.visit-us {
+  color: #facc15;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 1.25rem;
+}
+
+/* Toggleable nav links */
+.mobile-nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-nav-links.active {
+  display: flex;
+}
+
+/* logo */
+.logo-img {
+  height: 90px;         
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+
+.mobile-nav-links {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.mobile-nav-links.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-nav-links {
+  display: flex;
+  justify-content: center;   
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.mobile-nav-links .nav-links {
+  display: flex;
+  flex-direction: row;      
+  justify-content: center;   
+  flex-wrap: wrap;           
+  gap: 1rem;                 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links .nav-links a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-family: 'Red Hat Text', sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-nav-links .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .churchName { font-size: 2rem; }
+  .tagline { font-size: 1.25rem; }
+  .subtext { font-size: 0.95rem; }
+
+  .navbar {
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+
+  .nav-links {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+
+  .left-links, .right-links {
+    	  
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.25rem;
+  }
+
+ .logo-img {
+    margin: 0 auto;
+    height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  
+  }
+ .mobile-nav-links {
+  display: flex;
+  justify-content: center;   
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.mobile-nav-links .nav-links {
+  display: flex;
+  flex-direction: row;       
+  justify-content: center;   
+  flex-wrap: wrap;          
+  gap: 1rem;                 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links .nav-links a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-family: 'Red Hat Text', sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-nav-links .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+ 
 }
 
 
-.section:nth-child(1){
-background: black;
-}
-.section:nth-child(2){
-background: white;}
-.section:nth-child(3){
-background: black;}
-.section:nth-child(4){
-background:white;
-}
-
-.whiteTxt{
-color: white;
-}
