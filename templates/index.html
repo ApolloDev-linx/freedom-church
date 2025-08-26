@@ -11,37 +11,128 @@
 				<img src="static/img/testPastor.png"/>
 			</div>
 			<div class="hero-text">
-				<p class="tagline "> A Perfect Place for Imperfect people.</p>
-				<p class="subtext">Real life -Real Love -Real Family</p>
-			<p class="tagline"> Pastor Mario </p>
+				<p class="tagline text-dark"> A Perfect Place for Imperfect people.</p>
+				<p class="subtext text-dark">Real life -Real Love -Real Family</p>
+			<p class="tagline text-dark"> Pastor Mario </p>
 			</div>
 
 		</div>
 
-	</section>
+	 </section>
 
 
-	<section class="section">
-		<div>
-			<h1> How the Church op </h1>
-			<p> schduels </p>
+	<section id="community" class="section community">
+  <!-- Top Section: Community Description + Image -->
+  			<div class="community-top">
+    		       <div class="community-text">
+      			<h1 class="tagline text-dark">Community</h1>
+      			<p class="subtext text-dark lg">
+        No matter your story, there's a place for you here. Our community is built on faith, friendship, and real love — imperfect people, walking with a perfect God.      			
+				</p>
+ 		</div>   	   
+   		 <img src="static/img/placeholder1.jpg" alt="Community image" class="community-img">
 		</div>
+  <!-- Bottom Section: Schedule + Image -->
+  			<div class="community-bottom">
+    			<img src="static/img/placeholder2.jpg" alt="Schedule image" class="community-img">
+    			<ul class="schedule">
+      				<li><p class="subtext text-dark lg">Sundays – Worship @ 10:00 AM</p></li>
+      				<li><p class="subtext text-dark lg">Wednesdays – Bible Study @ 6:30 PM</p></li>
+      				<li><p class="subtext text-dark lg">Fridays – Youth Night @ 7:00 PM</p></li>
+    			</ul>
+  			</div>
+			<div class="community-end">
+  				<img src="static/img/russellville.png" alt="City of [Your City]" class="community-img">
+  				<div class="community-text">
+    				<p class="subtext text-dark lg">
+     				 In the quiet heart of Russellville, God is writing stories of hope, healing, and redemption. We’re just one small part of it and if you're reading this, you are too.
+    				</p>
+  				</div>
+				</div>
 	</section>
 
 
-	<section class="section">
-		<div>
-			<h1 class="whiteTxt"> our mission </h1>
-			<p class="whiteTxt"> we aim to... </p>
-		</div>
-	</section>
 
 
-	<section class="section">
-		<div>
-			<h1> Take action </h1>
-			<p>start here </p>
-		</div>
-	</section>
 
+<section id='services' class="section community services">
+  <!-- Top: Title + Hero image -->
+  <header class="services-header">
+    <h2 class="tagline text-light">Daycare & Pre‑K Services</h2>
+    <img
+      src="static/img/daycare.jpeg"
+      alt="Kids learning in a bright classroom"
+      class="services-hero"
+      loading="eager"
+    />
+  </header>
+
+  <!-- Bottom: 3 service cards -->
+  <div class="services-grid">
+    <article class="service">
+      <img src="static/img/card1.jpeg" alt="Safe care" class="service-img" loading="lazy" />
+      <h3 class="service-title">Real Life</h3>
+    </article>
+   <ul> <li> <p class="subtext lg text-light ser">📍 508 Saint Claire Street NW, Russellville, AL </p></li>  
+	   <li> <p class="subtext lg text-light ser">📞 (256) 332-2258 </p></li>  
+	   <li> <p class="subtext lg text-light ser">nfdaycare2258@gmail.com </p></li>
+   </ul>
+
+    <article class="service">
+      <img src="static/img/card2.jpg" alt="Learning time" class="service-img" loading="lazy" />
+      <h3 class="service-title">Real Love</h3>
+    </article>
+
+    <p class="subtext lg text-light ser">Welcome to our daycare and preschool in Russellville, AL! We proudly serve children from 6 weeks to 12 years old. Our doors open bright and early at 5:30 a.m. and close at 6:30 p.m., giving families the flexible care they need throughout the day.</p>
+
+    <article class="service">
+      <img src="static/img/card3.jpg" alt="Meals and hours" class="service-img" loading="lazy" />
+      <h3 class="service-title">Real Love</h3>
+    </article>
+
+      <p class="subtext lg text-light ser">In addition to full-day care, we provide convenient before- and after-school programs for Russellville City and Franklin County Schools, including Tharptown and Belgreen. Whether it’s an early drop-off or after-school pickup, we’re here to support working families.
+</p>
+
+  </div>
+</section>
+
+
+<section class="section action">
+  <div class="action-wrapper">
+    <div class="centerA">
+      <h1 class="tagline text-dark">
+        What if church wasn’t about looking perfect, but about bringing your real life — questions, scars, and all — and finding out that’s where freedom begins?
+      </h1>
+      <p class="subtext lg text-dark">
+        What if the hope you’ve been chasing is already alive here in Russellville, waiting for you to step into it?
+      </p>
+    </div>
+
+    <!-- Crosses (left & right) -->
+    <img height="200" width="200" class="cross cross--left"
+         src="{{ url_for('static', filename='img/cross.png') }}"
+         alt="Cross">
+
+    <img  height="200" width="200" class="cross cross--right"
+         src="{{ url_for('static', filename='img/cross.png') }}"
+         alt="Cross">
+
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides">
+        <img src="{{ url_for('static', filename='img/placeholder1.jpg') }}" alt="Slide 1">
+        <img src="{{ url_for('static', filename='img/placeholder2.jpg') }}" alt="Slide 2">
+        <img src="{{ url_for('static', filename='img/daycare.jpeg') }}" alt="Slide 3">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- CTAs -->
+    <div class="cta-buttons">
+      <a href="{{ url_for('giving') }}" class="btn">Give</a>
+      <a href="{{ url_for('contact') }}" class="btn">Contact</a>
+    </div>
+  </div>
+</section>
 {% endblock%}
