@@ -5,7 +5,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  scroll-snap-type: none;
+  scroll-snap-type: both proximity;
   scroll-behavior: smooth;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -14,26 +14,43 @@ html, body {
   line-height: 1.6;
   color: #f2f2f2;
 }
+.subtext.text-dark{
+color: #1f2937;
+}
+.subtext.text-light{
+color: #efe7eb;
+}
+/*text COLOR */
+.tagline.text-dark{
+color: #1f2937;
+}
+.tagline.text-light{
+color: #efe7eb;
+}
+
+ul {
+list-style-type: none;}
 
 /* === SECTION BASE === */
 .section {
   border-radius: 25px;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
+  transform: translateY(80px) scale(0.98);
+   transition: opacity 1s ease-out, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .section.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 .section:nth-child(1) { background: #1f2937; }
-.section:nth-child(2) { background: #e5e7eb; }
+.section:nth-child(2) { background: #efe7eb; }
 .section:nth-child(3) { background: #1f2937; }
-.section:nth-child(4) { background: #e5e7eb; }
+.section:nth-child(4) { background: #efe7eb; }
 
 .whiteTxt { color: white; }
 
@@ -43,7 +60,7 @@ html, body {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: linear-gradient(to bottom, #1f2937, #f8f9fa);
+  background: linear-gradient(to bottom, #1f2937, #efe7eb);
   text-align: center;
 }
 .hero-overlay {
@@ -88,15 +105,25 @@ margin: 0 auto;
   font-size: 1.5rem;
   font-weight: 500;
   font-style: italic;
-  color: black;
+  
   margin-top: 0.5rem;
 }
 .subtext {
   font-family: 'Roboto Flex', sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: #1f2937;
+  
 }
+
+.subtext.lg {
+  font-size: 1.5rem;   
+  line-height: 1.65;     
+  letter-spacing: 0.2px; 
+  max-width: 650px;        
+  margin: 0 auto;       
+  }
+
+
 
 /* === NAVBAR === */
 .site-header {
@@ -235,6 +262,276 @@ margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+/* ===BUTTONS=== */
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.btn {
+  background-color: #facc15;
+  color: #1f2937;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.btn:hover {
+  background-color: #eab308;
+}
+
+
+/*=== COMMUNITY ===*/
+.community-top, .community-bottom,.community-end {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: nowrap;
+}
+
+.community-text {
+  max-width: 600px;
+}
+
+.community-img {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.community-end {
+  flex-direction: row-reverse;
+}
+
+
+/*  */
+.subtext.lg.spot {
+  background: #1f2937;   /* dark */
+  color: #efe7eb !important; /* light text, override text-dark */
+  border-radius: 16px;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  padding: 1rem 1.25rem;  /* gives it a box feel */
+}
+
+
+/*  */
+.subtext.lg.spotSer {
+  background: #efe7eb;   /* light */
+  color: #1f2937 !important; /* dark text, override text-dark */
+  border-radius: 16px;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  padding: 1rem 1.25rem;  /* gives it a box feel */
+}
+
+
+/* === SERVICES ===*/
+/* Reuses .section + .community base. Only tweaks for services */
+.services {
+  --card-bg: #fff;
+  --card-bd: rgba(0,0,0,0.06);
+  --radius: 18px;
+  --pad: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+/* Top block */
+.services-header {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  max-width: 1100px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.services-hero {
+  width: 100%;
+  max-width: 900px;
+  height: 350px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Grid of 3 cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  max-width: 1100px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+
+  .service {
+  background: var(--card-bg);
+  border: 1px solid var(--card-bd);
+  border-radius: var(--radius);
+  overflow: hidden; /* important: makes the image corners match card corners */
+  padding: 0; /* let image fill top area */
+  text-align: center;  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+ 
+}
+.service > * {
+margin: 0;}
+
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+}
+
+.service-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-title {
+  margin: 0;
+  padding: 0;
+  color: #1f2937;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-weight: 700;
+}
+
+
+/* === SLIDER === */
+.slider {
+  position: relative;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: 320px;
+}
+
+/* Arrows */
+.slider .prev,
+.slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.slider .prev:hover,
+.slider .next:hover {
+  background: rgba(0,0,0,0.75);
+}
+
+.slider .prev { left: 10px; }
+.slider .next { right: 10px; }
+
+
+.centerA {
+  display: flex;
+  flex-direction: column;   /* stack items top → bottom */
+  align-items: center;      /* center horizontally */
+  justify-content: center;  /* center vertically if parent has height */
+  text-align: center;       /* center text inside */
+  gap: 0.75rem;             /* space between h1 and p */
+}
+
+
+/* CROSS */
+
+.cross-img {
+  display:flex;
+
+  max-height: 150px;	
+  max-width: 150px;   /* scale the cross */
+  margin-bottom: 1rem;
+  opacity: 0.85;      /* make it slightly transparent if you want subtle */
+}
+/* Make the section a positioning context */
+.action-wrapper { position: relative; }
+
+/* Cross base */
+.cross {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);     /* vertically center */
+  width: 140px;                     /* tweak size as needed */
+  height: auto;
+  opacity: 0;                       /* default: invisible, animation handles fade */
+  pointer-events: none;             /* don’t block clicks on slider/buttons */
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
+  z-index: 1;                       /* under slider if slider gets z-index:2 */
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Left cross sits just outside the content area and slides in/out */
+.cross--left  { left: -12px;  animation-name: crossLeftWave;  }
+/* Right cross mirrors the timing with a phase shift */
+.cross--right { right: -12px; animation-name: crossRightWave; animation-delay: 2s; }
+
+/* Keyframes: fade in, subtle slide toward content, fade out */
+@keyframes crossLeftWave {
+  0%   { opacity: 0; transform: translate(-16px, -50%); }
+  10%  { opacity: .9; transform: translate(0, -50%); }
+  50%  { opacity: .6; transform: translate(8px, -50%); }
+  85%  { opacity: 0; transform: translate(16px, -50%); }
+  100% { opacity: 0; transform: translate(16px, -50%); }
+}
+
+@keyframes crossRightWave {
+  0%   { opacity: 0; transform: translate(16px, -50%); }
+  10%  { opacity: .9; transform: translate(0, -50%); }
+  50%  { opacity: .6; transform: translate(-8px, -50%); }
+  85%  { opacity: 0; transform: translate(-16px, -50%); }
+  100% { opacity: 0; transform: translate(-16px, -50%); }
+}
+
+/* Optional: tone-down blend for creamy backgrounds */
+.cross { mix-blend-mode: multiply; opacity: 0; } /* animation sets opacity peaks */
+
+/* Ensure slider sits above the crosses if needed */
+.slider { position: relative; z-index: 2; }
+
+/* Center text block vertically and horizontally */
+.centerA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .75rem;
+}
+
+
+
+
 /* === MOBILE === */
 @media (max-width: 768px) {
   .churchName { font-size: 2rem; }
@@ -305,7 +602,51 @@ margin: 0 auto;
 .mobile-nav-links .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
- 
+
+.subtext.lg {
+  font-size: 1rem;   
+  line-height: 1.65;     
+  letter-spacing: 0.2px; 
+  max-width: 650px;        
+  margin: 0 auto;       
+  }
+
+  .community-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* Top cross */
+  .cross--left {
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    animation-name: crossTopWave;
+    animation-delay: 0s;
+  }
+  /* Bottom cross */
+  .cross--right {
+    bottom: -210px; left: 50%; top: auto;
+    transform: translateX(-50%);
+    animation-name: crossBottomWave;
+    animation-delay: 3s;
+  }
+
+  /* Vertical breathing keyframes */
+  @keyframes crossTopWave {
+    0%   { opacity: 0; transform: translate(-50%,-16px); }
+    10%  { opacity: .9; transform: translate(-50%,0); }
+    50%  { opacity: .6; transform: translate(-50%,8px); }
+    85%  { opacity: 0; transform: translate(-50%,16px); }
+    100% { opacity: 0; transform: translate(-50%,16px); }
+  }
+  @keyframes crossBottomWave {
+    0%   { opacity: 0; transform: translate(-50%,16px); }
+    10%  { opacity: .9; transform: translate(-50%,0); }
+    50%  { opacity: .6; transform: translate(-50%,-8px); }
+    85%  { opacity: 0; transform: translate(-50%,-16px); }
+    100% { opacity: 0; transform: translate(-50%,-16px); }
+  }
 }
 
 
