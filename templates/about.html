@@ -1,38 +1,94 @@
-{% extends "layout.html"%}
-
-{% block title%}Home - Freedom Church{% endblock%}
+{% extends "layout.html" %}
+{% block title %}About – New Freedom Church{% endblock %}
 
 {% block content %}
-		<section class="section">
-		<div>
-			<h1 class="whiteTxt"> New Freedom Christian Fellowship </h1>
-			<p class="whiteTxt"> A Perfect Place for Imperfect people</p>
-			<img height ="800" width="800"   src = "{{url_for('static', filename='img/testPastor.png')}}"/>
-		</div>
 
-	</section>
+<!-- 1) Mission & Vision -->
+<section class="section hero about mission dark">
+  <div class="container">
+    <h1 class="churchName">Our Mission & Vision</h1>
+    <p class="subtext lg text-light">
+      We are a family of imperfect people pursuing a perfect God—seeking real life, real love, and real freedom in Jesus.
+      Our vision is simple: make disciples, serve Russellville, and reflect Christ in everyday life.
+    </p>
 
+    <div class="mv-grid">
+      <article class="mv-card">
+        <h2 class="tagline text-light">Mission</h2>
+        <p class="subtext text-light">
+          Lead people from curiosity to commitment through authentic worship, biblical teaching, and practical service.
+        </p>
+      </article>
+      <article class="mv-card">
+        <h2 class="tagline text-light">Vision</h2>
+        <p class="subtext text-light">
+          A beacon in Russellville where families heal, faith grows, and the next generation learns to walk with God.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
-	<section class="section">
-		<div>
-			<h1> How the Church op </h1>
-			<p> schduels </p>
-		</div>
-	</section>
+<!-- 2) Pastor’s Story -->
+<section class="section about pastor light">
+  <div class="container pastor-wrap">
+    <img class="pastor-photoA"
+         src="{{ url_for('static', filename='img/testPastor.png') }}"
+         alt="Pastor Mario">
+    <div class="pastor-copy">
+      <h2 class="tagline text-dark">Pastor’s Story</h2>
+      <p class="subtext lg text-dark">
+        Pastor Mario loves this city. His calling is to serve people where they are—no polish required.
+        From living-room prayers to Sunday gatherings, his heartbeat is the same: point people to Jesus and walk with them.
+      </p>
+     
+    </div>
+  </div>
+</section>
 
+<!-- 3) Core Beliefs -->
+<section id='services' class="section community services about beliefs dark">
+  <div class="container">
+    <h2 class="tagline text-light">Core Beliefs</h2>
+    <ul class="beliefs-list">
+      <li>
+        <h3 class="belief-title text-light">God</h3>
+        <p class="subtext lg text-light ser">One God who reveals Himself to us—holy, loving, and faithful.</p>
+      </li>
+      <li>
+        <h3 class="belief-title text-light">Scripture</h3>
+        <p class="subtext lg text-light ser">The Bible is our final authority for faith and life.</p>
+      </li>
+      <li>
+        <h3 class="belief-title text-light">Jesus</h3>
+        <p class="subtext lg text-light ser">Salvation is found in Jesus Christ; we are saved by grace through faith.</p>
+      </li>
+      <li>
+        <h3 class="belief-title text-light">The Church</h3>
+        <p class="subtext lg text-light ser">We gather to worship, grow, and serve—sent to love our city.</p>
+      </li>
+    </ul>
+  </div>
+</section>
 
-	<section class="section">
-		<div>
-			<h1 class="whiteTxt"> our mission </h1>
-			<p class="whiteTxt"> we aim to... </p>
-		</div>
-	</section>
+<!-- 4) Photos + Call to Action -->
+<section class="section about gallery light">
+  <div class="container">
+    <h2 class="tagline text-dark">Life at New Freedom</h2>
 
+    <div class="photo-grid">
+      <img src="{{ url_for('static', filename='img/placeholder1.jpg') }}" alt="Community moment">
+      <img src="{{ url_for('static', filename='img/placeholder2.jpg') }}" alt="Worship gathering">
+      <img src="{{ url_for('static', filename='img/daycare.jpeg') }}" alt="Daycare & Pre-K">
+      <img src="{{ url_for('static', filename='img/russellville.png') }}" alt="Russellville">
+    </div>
 
-	<section class="section">
-		<div>
-			<h1> Take action </h1>
-			<p>start here </p>
-		</div>
-	</section>
-{% endblock%}
+    <div class="cta-buttons">
+      <a href="{{ url_for('giving') }}" class="btn">Give</a>
+      <a href="{{ url_for('contact') }}" class="btn">Visit / Contact</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

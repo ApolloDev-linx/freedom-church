@@ -1,38 +1,57 @@
-{% extends "layout.html"%}
-
-{% block title%}Home - Freedom Church{% endblock%}
+{% extends "layout.html" %}
+{% block title %}Contact – New Freedom Church{% endblock %}
 
 {% block content %}
-		<section class="section">
-		<div>
-			<h1 class="whiteTxt"> New Freedom Christian Fellowship </h1>
-			<p class="whiteTxt"> A Perfect Place for Imperfect people</p>
-			<img height ="800" width="800"   src = "{{url_for('static', filename='img/testPastor.png')}}"/>
-		</div>
 
-	</section>
+<!-- 1. Pastor Mario -->
+<section class="section hero contact pastor dark">
+  <div class="container">
+    <img src="{{ url_for('static', filename='img/testPastor.png') }}" alt="Pastor Mario" class="pastor-photo">
+    <h2 class="tagline text-dark">Pastor Mario</h2>
+    <p class="subtext lg text-dark">Here to listen, pray, and walk with you.</p>
+    <div class="cta-buttons">
+      <a href="tel:256-XXX-XXXX" class="btn">Call</a>
+      <a href="mailto:pastor@example.com" class="btn">Email</a>
+    </div>
+  </div>
+</section>
 
+<!-- 2. Pastor’s Wife -->
+<section class="section contact wife light">
+  <div class="container">
+    <h2 class="tagline text-dark">First Lady [Name]</h2>
+    <p class="subtext lg text-dark">
+      Walking with women and families in faith — you’re not alone.
+    </p>
+    <a href="mailto:wife@example.com" class="btn">Email</a>
+  </div>
+</section>
 
-	<section class="section">
-		<div>
-			<h1> How the Church op </h1>
-			<p> schduels </p>
-		</div>
-	</section>
+<!-- 3. Daycare & Office -->
+<section class="section contact daycare dark">
+  <div class="container">
+    <h2 class="tagline text-light">Daycare & Office Info</h2>
+    <ul class="subtext lg text-light">
+      <li>📍 508 Saint Claire Street NW, Russellville, AL</li>
+      <li>📞 Daycare: (256) 332-2258</li>
+      <li>📞 Church Office: (256) XXX-XXXX</li>
+      <li>✉️ nfdaycare2258@gmail.com</li>
+    </ul>
+  </div>
+</section>
 
+<!-- 4. Message Form -->
+<section class="section contact form light">
+  <div class="container">
+    <h2 class="tagline text-dark">Send a Message</h2>
+    <form method="POST" action="{{ url_for('contact') }}">
+      <input type="text" name="name" placeholder="Your Name" required class="form-input">
+      <input type="email" name="email" placeholder="Your Email" required class="form-input">
+      <textarea name="message" placeholder="Your Message" required class="form-input"></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
+</section>
 
-	<section class="section">
-		<div>
-			<h1 class="whiteTxt"> our mission </h1>
-			<p class="whiteTxt"> we aim to... </p>
-		</div>
-	</section>
+{% endblock %}
 
-
-	<section class="section">
-		<div>
-			<h1> Take action </h1>
-			<p>start here </p>
-		</div>
-	</section>
-{% endblock%}

@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function communityText(){
 // 1) grab the three texts community
 const communityTexts = document.querySelectorAll('#community .subtext.lg');
+	if (!communityTexts.length) return;
 
 let current = 0;
 const HIGHLIGHT_TIME = 2000; // ms each stays active
@@ -75,6 +76,7 @@ communityText();
 function serviceText(){
 // 1) grab the three texts community
 const communityTexts = document.querySelectorAll('#services  .subtext.lg.ser');
+
 
 let current = 0;
 const HIGHLIGHT_TIME = 2000; // ms each stays active
