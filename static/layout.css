@@ -14,6 +14,16 @@ html, body {
   line-height: 1.6;
   color: #f2f2f2;
 }
+.subtext + .btn {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+
+.subtext.text-dark { color: #1f2937 !important; }
+.tagline.text-dark { color: #1f2937 !important; }
+
+
 .subtext.text-dark{
 color: #1f2937;
 }
@@ -530,6 +540,127 @@ margin: 0;}
 }
 
 
+/* --- Generic container for readable widths --- */
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  text-align: center;
+}
+
+/* Explicit backgrounds to avoid :nth-child dependency */
+/* Before: background: ... (kills gradients) */
+/* After: only set color, not the whole background */
+.section.dark  { background-color: #1f2937; color: #efe7eb; }
+.section.light { background-color: #efe7eb; color: #1f2937; }
+.section.light .tagline,
+.section.light .subtext,
+.section.light .belief-title { color:#1f2937; }
+.section.dark  .tagline,
+.section.dark  .subtext,
+.section.dark  .belief-title { color:#efe7eb; }
+/* --- Mission & Vision --- */
+.mv-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.mv-card{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* --- Pastor --- */
+.pastor-wrap{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items:center;
+  text-align:left;
+}
+.pastor-photo {
+  width: 800px;           /* or whatever size feels right */
+  height: auto;           /* keep aspect ratio */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  object-fit: cover;      /* if you do set both width/height */
+}
+
+.pastor-photoA {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  object-fit: cover;
+
+  margin-left: -120px;  /* nudge left */
+}
+
+
+.pastor-copy .tagline{ margin-bottom:.25rem; }
+.pastor-highlights{ margin: .75rem 0 0; padding:0; list-style:none; }
+.pastor-highlights li{ margin:.25rem 0; }
+
+/* --- Beliefs --- */
+.beliefs-list{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 1rem;
+  margin-top: .75rem;
+  padding:0; list-style:none;
+}
+.belief-title{
+  font-weight:700;
+  margin-bottom:.25rem;
+}
+
+/* --- Photos --- */
+.photo-grid{
+  margin: .75rem auto 1rem;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: .75rem;
+}
+.photo-grid img{
+  width:100%; height:180px; object-fit:cover;
+  border-radius:10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.form-input {
+  width: 100%;
+  max-width: 500px;
+  margin: 0.5rem auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Roboto Flex', sans-serif;
+  display: block;
+}
+textarea.form-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+
+
+/* --- Responsive tweaks --- */
+@media (max-width: 992px){
+  .mv-grid{ grid-template-columns: 1fr; }
+  .beliefs-list{ grid-template-columns: 1fr; }
+  .pastor-wrap{ grid-template-columns: 1fr; text-align:center; }
+  .pastor-copy{ text-align: center; }
+}
+@media (max-width: 640px){
+  .photo-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .photo-grid img{ height: 140px; }
+}
 
 
 /* === MOBILE === */
@@ -647,6 +778,112 @@ margin: 0;}
     85%  { opacity: 0; transform: translate(-50%,-16px); }
     100% { opacity: 0; transform: translate(-50%,-16px); }
   }
+.pastor-photo {
+  width: 500px;           /* or whatever size feels right */
+  height: auto;           /* keep aspect ratio */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  object-fit: cover;      /* if you do set both width/height */
+}
+
+  
+}
+
+
+/* =============== MOBILE OVERRIDES =============== */
+/* Tablet and down */
+@media (max-width: 768px) {
+  /* Section sizing */
+  .section {
+    height: auto;                 /* stop forcing 100vh on phones */
+    min-height: 100svh;           /* still fills small screens nicely */
+    padding: 2rem 1rem;
+  }
+
+  /* Typography scale */
+  .churchName { font-size: 2rem; }
+  .tagline    { font-size: 1.25rem; }
+  .subtext    { font-size: 0.95rem; }
+  .subtext.lg { font-size: 1rem; max-width: 100%; }
+
+  /* Container width */
+  .container { width: 100%; padding-inline: 1rem; }
+
+  /* Mission & Vision cards -> single column */
+  .mv-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+
+  /* Pastor layout -> stacked, centered */
+  .pastor-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1rem;
+  }
+  .pastor-copy { text-align: center; }
+  .pastor-highlights { margin-top: .5rem; }
+  .pastor-highlights li { margin: .2rem 0; }
+
+  /* Pastor photos (both about + contact variants) */
+  .pastor-photo,
+  .pastor-photoA {
+    width: 450px;      /* sane mobile size */
+    height: auto;
+    margin: 0 auto;    /* center the image */
+    transform: none;   /* cancel any desktop nudges */
+  }
+
+  /* Beliefs list -> single column */
+  .beliefs-list { grid-template-columns: 1fr; gap: .75rem; }
+
+  /* Gallery: 2-up grid */
+  .photo-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: .5rem; }
+  .photo-grid img { height: 140px; }
+
+  /* Hero section alignment stays centered */
+  .section.hero { text-align: center; }
+
+  /* CTA buttons: wrap + comfortable spacing */
+  .cta-buttons {
+    flex-wrap: wrap;
+    gap: .75rem;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-block;         /* allow vertical margins */
+    padding: 0.65rem 1.1rem;       /* thumb-friendly */
+    font-size: 1rem;
+  }
+
+  /* Contact form: full-width inputs with big tap targets */
+  .form-input {
+    width: 100%;
+    max-width: 480px;
+    margin: 0.5rem auto;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+  textarea.form-input { min-height: 120px; }
+
+  /* Slider: shrink height a bit on phones */
+  .slider { max-width: 100%; margin: 1rem auto; }
+  .slides img { height: 220px; }
+  .slider .prev, .slider .next { font-size: 1.25rem; padding: 0.6rem; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .churchName { font-size: 1.75rem; }
+  .tagline    { font-size: 1.1rem; }
+  .subtext    { font-size: 0.95rem; }
+
+  .pastor-photo,
+  .pastor-photoA { width: 150px; }
+
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-grid img { height: 160px; }
+
+  .slides img { height: 200px; }
+  .btn { padding: 0.6rem 1rem; }
 }
 
 
